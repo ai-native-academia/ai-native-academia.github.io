@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI-Native Academia @ NeurIPS 2026</title>
+<meta name="description" content="NeurIPS 2026 Workshop on AI-Native Academia: Authorship, Peer Review, and Conference Governance under AI." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink:        #0e1419;
+    --ink-soft:   #3a4750;
+    --paper:      #faf8f4;
+    --paper-2:    #f3efe7;
+    --rule:       #d9d2c2;
+    --accent:     #145366;
+    --accent-2:   #b85c2a;
+    --maxw:       1080px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+  a:hover { border-bottom-color: var(--accent); }
+  .container { max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
+
+  /* ---------- NAV ---------- */
+  nav.top {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250, 248, 244, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  nav.top .inner {
+    max-width: var(--maxw); margin: 0 auto; padding: 14px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 14px;
+  }
+  nav.top .brand { font-weight: 600; letter-spacing: -0.01em; }
+  nav.top .brand .venue { color: var(--ink-soft); font-weight: 400; margin-left: 8px; }
+  nav.top ul { list-style: none; display: flex; gap: 28px; margin: 0; padding: 0; }
+  nav.top a { color: var(--ink-soft); border: none; }
+  nav.top a:hover { color: var(--accent); }
+
+  /* ---------- HERO ---------- */
+  header.hero { padding: 96px 0 80px; border-bottom: 1px solid var(--rule); }
+  header.hero .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  header.hero h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(34px, 5vw, 60px);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    margin: 0 0 28px;
+    max-width: 22ch;
+  }
+  header.hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  header.hero .tagline {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--ink-soft);
+    max-width: 56ch;
+    margin: 0 0 36px;
+    line-height: 1.4;
+  }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .cta {
+    display: inline-block;
+    padding: 12px 22px;
+    font-weight: 500;
+    font-size: 14px;
+    border: 1px solid var(--ink);
+    border-radius: 2px;
+    transition: all 0.15s;
+  }
+  .cta.primary { background: var(--ink); color: var(--paper); }
+  .cta.primary:hover { background: var(--accent); border-color: var(--accent); }
+  .cta.ghost { background: transparent; color: var(--ink); }
+  .cta.ghost:hover { background: var(--paper-2); }
+  .cta { border-bottom: 1px solid var(--ink); }
+
+  /* ---------- SECTIONS ---------- */
+  section { padding: 88px 0; border-bottom: 1px solid var(--rule); }
+  section:last-of-type { border-bottom: none; }
+  section .section-head {
+    display: flex; align-items: baseline; gap: 24px;
+    margin-bottom: 40px;
+  }
+  section .num {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 14px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+  section h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(28px, 3.5vw, 38px);
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: -0.015em;
+  }
+  section .lede {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin: 0 0 36px;
+    font-style: italic;
+  }
+
+  /* ---------- OVERVIEW STATS ---------- */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 28px;
+  }
+  .stat { background: var(--paper); padding: 28px 22px; }
+  .stat .num-big {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .stat .label {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* ---------- TOPICS TABLE ---------- */
+  table.topics {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 14.5px;
+  }
+  table.topics td {
+    padding: 16px 12px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  table.topics td.idx {
+    font-family: 'Fraunces', serif;
+    color: var(--accent);
+    width: 36px;
+    font-weight: 500;
+    font-size: 18px;
+  }
+  table.topics td.title {
+    width: 30%;
+    font-weight: 600;
+  }
+  table.topics td.title .node {
+    display: block;
+    font-weight: 400;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-top: 4px;
+  }
+  table.topics td.body { color: var(--ink-soft); }
+
+  /* ---------- DATES TIMELINE ---------- */
+  .timeline {
+    border-left: 2px solid var(--rule);
+    padding-left: 28px;
+    margin-top: 12px;
+  }
+  .timeline .item {
+    position: relative;
+    padding: 12px 0;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 24px;
+    align-items: baseline;
+  }
+  .timeline .item::before {
+    content: '';
+    position: absolute;
+    left: -34px;
+    top: 22px;
+    width: 10px; height: 10px;
+    background: var(--paper);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+  }
+  .timeline .item.event::before { background: var(--accent); }
+  .timeline .date {
+    font-family: 'Fraunces', serif;
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 15px;
+  }
+  .timeline .what { font-size: 15px; }
+  .timeline .what strong { font-weight: 600; }
+  .timeline .what .note { color: var(--ink-soft); font-size: 13.5px; display: block; margin-top: 2px; }
+
+  /* ---------- PEOPLE GRIDS ---------- */
+  .group-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    margin: 36px 0 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    font-weight: 600;
+  }
+  .people {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 28px 22px;
+  }
+  .person { text-align: center; }
+  .person .photo {
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 12px;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    display: block;
+  }
+  .person .name {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+  .person .name a { color: var(--ink); border: none; }
+  .person .name a:hover { color: var(--accent); }
+  .person .aff { font-size: 13px; color: var(--ink-soft); }
+  .person .role { font-size: 12px; color: var(--accent); margin-top: 4px; font-style: italic; }
+  .person .tag { font-size: 11px; color: var(--accent-2); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    padding: 48px 0;
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 13px;
+    background: var(--paper-2);
+    border-top: 1px solid var(--rule);
+  }
+  footer a { color: var(--accent); }
+  footer .last { margin-top: 8px; font-size: 12px; }
+
+  /* ---------- MOBILE ---------- */
+  @media (max-width: 720px) {
+    nav.top ul { gap: 16px; }
+    nav.top .brand .venue { display: none; }
+    header.hero { padding: 60px 0 50px; }
+    section { padding: 56px 0; }
+    section .section-head { flex-direction: column; gap: 6px; margin-bottom: 28px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .timeline .item { grid-template-columns: 1fr; gap: 4px; }
+    table.topics td.title { width: 40%; }
+    .people { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 22px 14px; }
+    .person .photo { width: 90px; height: 90px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <div class="brand">AI-Native Academia <span class="venue">@ NeurIPS 2026</span></div>
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#cfp">Call for Papers</a></li>
+      <li><a href="#dates">Dates</a></li>
+      <li><a href="#speakers">Speakers</a></li>
+      <li><a href="#panel">Panel</a></li>
+      <li><a href="#organizers">Organizers</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">NeurIPS 2026 Workshop &nbsp;·&nbsp; San Diego, Dec 2026</div>
+    <h1>AI-Native Academia: <em>Authorship,</em> Peer Review, and Conference Governance under AI</h1>
+    <p class="tagline">Once AI errors enter published papers, they don't come back out. This workshop names the failure mode (human-AI co-hallucination) and brings together the PC chairs already designing the response.</p>
+    <div class="cta-row">
+      <a class="cta primary" href="#cfp">Call for Papers</a>
+      <a class="cta ghost" href="#dates">Important Dates</a>
+    </div>
+  </div>
+</header>
+
+<section id="overview">
+  <div class="container">
+    <div class="section-head">
+      <span class="num">01</span>
+      <h2>Overview</h2>
+    </div>
+    <p class="lede">Scholarly publication is a chain: drafting, citation, submission, review, rebuttal, meta-review, acceptance, indexing, corpus reuse for the next model. AI is now active at every node, and an error at one node propagates through every downstream one, with no undo button.</p>
+    <p>We call the failure mode <strong>human-AI co-hallucination</strong>: false or unsupported scholarly claims that no model and no human would produce alone, but that arise through their interaction and become institutionalized through trust, time pressure, and publication incentives.</p>
+    <p>Program chairs at major venues are already running live interventions on the publication system: ICML 2026's Policy A/B reviewer test and self-ranking deployment, ICLR 2026's venue-side LLM-detector pipeline, Stanford's Agents4Science 2025 full-loop pilot, NeurIPS 2025's Responsible Reviewing Initiative. These prototypes are scattered across different chairs with no shared formulation. <strong>This workshop is the convergence point.</strong></p>
+
+    <div class="stats">
+      <div class="stat"><div class="num-big">1 day</div><div class="label">in-person</div></div>
+      <div class="stat"><div class="num-big">6</div><div class="label">invited speakers</div></div>
+      <div class="stat"><div class="num-big">5+1</div><div class="label">PC-chair panel + moderator</div></div>
+      <div class="stat"><div class="num-big">300–400</div><div class="label">expected attendees</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="cfp">
+  <div class="container">
+    <div class="section-head">
+      <span class="num">02</span>
+      <h2>Call for Papers</h2>
+    </div>
+    <p class="lede">We invite technical, empirical, and policy submissions on eight topics that decompose the publication pipeline by actor, artifact, intervention type, and timescale.</p>
+
+    <table class="topics">
+      <tbody>
+        <tr>
+          <td class="idx">1</td>
+          <td class="title">Human-AI Co-Hallucination &amp; Error Propagation<span class="node">cross-cutting</span></td>
+          <td class="body">Taxonomies of failure paths; observable signals that distinguish co-hallucination from pure model or pure human error; models of how local AI errors become institutionalized through trust, time pressure, and publication incentives.</td>
+        </tr>
+        <tr>
+          <td class="idx">2</td>
+          <td class="title">AI-Assisted Authorship &amp; Rebuttal<span class="node">drafting + rebuttal</span></td>
+          <td class="body">LLM use in drafting, related-work synthesis, citation selection, code and figure generation, polishing, rebuttal; disclosure thresholds, accessibility for non-native writers, the boundary between assistance and distorted communication.</td>
+        </tr>
+        <tr>
+          <td class="idx">3</td>
+          <td class="title">AI-Native Peer Review &amp; Decision Support<span class="node">reviewer / AC / PC</span></td>
+          <td class="body">Human-only vs. AI-only vs. collaborative reviewing; review correctness, calibration, fairness, decision impact; identification of AI-written reviews; mechanism design under AI pressure including the ICML 2026 Isotonic-Mechanism deployment.</td>
+        </tr>
+        <tr>
+          <td class="idx">4</td>
+          <td class="title">Manuscripts as Attack Surfaces<span class="node">submission, adversarial</span></td>
+          <td class="body">Hidden prompt injection in PDFs and LaTeX, adversarial figures and metadata, jailbreaks against review assistants, document sanitization, review-tool security, red-teaming of AI-assisted conference workflows.</td>
+        </tr>
+        <tr>
+          <td class="idx">5</td>
+          <td class="title">Citation &amp; Credit Governance<span class="node">citation node</span></td>
+          <td class="body">Citation hallucination, support-of-claim verification, citation manipulation, citation-recommendation bias, missing-credit detection, bibliometric distortion, knowledge-graph contamination.</td>
+        </tr>
+        <tr>
+          <td class="idx">6</td>
+          <td class="title">Provenance, Plagiarism, Authorship Integrity<span class="node">submission + post-pub</span></td>
+          <td class="body">AI-generated paper detection extending the ICLR/ICML 2026 audits; watermarking; text and figure provenance; copyright and memorization; due process; harms of false-positive detection on honest non-native authors.</td>
+        </tr>
+        <tr>
+          <td class="idx">7</td>
+          <td class="title">Recursive Scholarly Feedback Loops<span class="node">corpus reuse; long-horizon</span></td>
+          <td class="body">Synthetic-data contamination and model collapse in scientific text; cognitive decline from low-quality training text; benchmark leakage; AI-generated review norms; long-term degradation or homogenization of scientific knowledge.</td>
+        </tr>
+        <tr>
+          <td class="idx">8</td>
+          <td class="title">Publication Infrastructure &amp; Policy<span class="node">governance</span></td>
+          <td class="body">Enforceable AI-use policies for authors, reviewers, ACs, PCs, and platforms; audit trails for AI-influenced decisions; OpenReview, arXiv, ACM, IEEE infrastructure; scaling review from 15,000 to 30,000+ submissions without collapse into AI-only review.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top: 36px;"><strong>Submission tracks (via OpenReview, non-archival):</strong> Short papers (4 pages) and long papers (9 pages), references excluded. Work already accepted at NeurIPS main or other ML venues is excluded.</p>
+  </div>
+</section>
+
+<section id="dates">
+  <div class="container">
+    <div class="section-head">
+      <span class="num">03</span>
+      <h2>Important Dates</h2>
+    </div>
+    <div class="timeline">
+      <div class="item"><div class="date">Jul 10, 2026</div><div class="what"><strong>Call for Papers opens</strong></div></div>
+      <div class="item"><div class="date">Aug 22, 2026</div><div class="what"><strong>Submission deadline</strong><span class="note">via OpenReview, AoE</span></div></div>
+      <div class="item"><div class="date">Sep 10, 2026</div><div class="what"><strong>Reviews due</strong></div></div>
+      <div class="item"><div class="date">Sep 22, 2026</div><div class="what"><strong>Author notification</strong><span class="note">ahead of NeurIPS's Sep 29 deadline</span></div></div>
+      <div class="item"><div class="date">Nov 10, 2026</div><div class="what"><strong>Camera-ready</strong></div></div>
+      <div class="item event"><div class="date">Dec 2026</div><div class="what"><strong>Workshop date: AI-Native Academia @ NeurIPS 2026</strong><span class="note">San Diego Convention Center</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="speakers">
+  <div class="container">
+    <div class="section-head">
+      <span class="num">04</span>
+      <h2>Invited Speakers</h2>
+    </div>
+    <p class="lede">Each speaker is anchored to a concrete in-flight or completed experiment on the publication system, not a topical survey.</p>
+
+    <div class="people">
+      <div class="person">
+        <img class="photo" src="assets/zou.jpg" alt="James Zou" />
+        <div class="name"><a href="https://www.james-zou.com/">James Zou</a></div>
+        <div class="aff">Stanford</div>
+        <div class="role">Agents4Science 2025 lead</div>
+      </div>
+      <div class="person">
+        <img class="photo" src="assets/cho.jpg" alt="Kyunghyun Cho" />
+        <div class="name"><a href="https://kyunghyuncho.me/">Kyunghyun Cho</a></div>
+        <div class="aff">NYU</div>
+        <div class="role">Cross-venue PC history</div>
+      </div>
+      <div class="person">
+        <img class="photo" src="assets/su.jpg" alt="Weijie Su" />
+        <div class="name"><a href="https://www.weijie-su.com">Weijie Su</a></div>
+        <div class="aff">UPenn (Wharton)</div>
+        <div class="role">ICML 2026 self-ranking</div>
+      </div>
+      <div class="person">
+        <img class="photo" src="assets/sharonli.jpg" alt="Sharon Li" />
+        <div class="name"><a href="https://pages.cs.wisc.edu/~sharonli/">Sharon Li</a></div>
+        <div class="aff">UW–Madison</div>
+        <div class="role">AI-review identification</div>
+        <div class="tag">also on panel</div>
+      </div>
+      <div class="person">
+        <img class="photo" src="assets/raffel.png" alt="Colin Raffel" />
+        <div class="name"><a href="https://colinraffel.com/">Colin Raffel</a></div>
+        <div class="aff">Toronto / Hugging Face</div>
+        <div class="role">ICLR 2026 venue-side detection</div>
+        <div class="tag">also on panel</div>
+      </div>
+      <div class="person">
+        <img class="photo" src="assets/peng.jpg" alt="Lin Peng" />
+        <div class="name"><a href="https://sites.google.com/site/linpengbaruch">Lin Peng</a></div>
+        <div class="aff">Baruch / CUNY</div>
+        <div class="role">Attention &amp; information diffusion</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="panel">
+  <div class="container">
+    <div class="section-head">
+      <span class="num">05</span>
+      <h2>The All-PC-Chair Panel</h2>
+    </div>
+    <p class="lede">Every panelist is a current or incoming PC Chair or General Chair at ICLR, ICML, or CVPR. Atlas Wang moderates, framing the panel around how AI text re-entering the scientific corpus degrades future models.</p>
+
+    <div class="group-label">Moderator</div>
+    <div class="people">
+      <div class="person">
+        <img class="photo" src="assets/atlas.png" alt="Atlas Wang" />
+        <div class="name"><a href="https://vita-group.github.io/">Atlas Wang</a></div>
+        <div class="aff">UT Austin</div>
+        <div class="role">"LLM Brain Rot" senior author</div>
+      </div>
+    </div>
+
+    <div class="group-label">Panelists</div>
+    <div class="people">
+      <div class="person">
+        <img class="photo" src="assets/yisongyue.jpg" alt="Yisong Yue" />
+        <div class="name"><a href="http://www.yisongyue.com/">Yisong Yue</a></div>
+        <div class="aff">Caltech</div>
+        <div class="role">ICLR 2025 General Chair</div>
+      </div>
+      <div class="person">
+        <img class="photo" src="assets/raffel.png" alt="Colin Raffel" />
+        <div class="name"><a href="https://colinraffel.com/">Colin Raffel</a></div>
+        <div class="aff">Toronto / Hugging Face</div>
+        <div class="role">ICLR 2026 PC Chair</div>
+      </div>
+      <div class="person">
+        <img class="photo" src="assets/sharonli.jpg" alt="Sharon Li" />
+        <div class="name"><a href="https://pages.cs.wisc.edu/~sharonli/">Sharon Li</a></div>
+        <div class="aff">UW–Madison</div>
+        <div class="role">ICML 2026 PC Chair</div>
+      </div>
+      <div class="person">
+        <img class="photo" src="assets/dudik.jpg" alt="Miroslav Dudik" />
+        <div class="name"><a href="https://www.microsoft.com/en-us/research/people/mdudik/">Miroslav Dudik</a></div>
+        <div class="aff">MSR / FATE</div>
+        <div class="role">ICML 2026 PC Chair</div>
+      </div>
+      <div class="person">
+        <img class="photo" src="assets/humphreyshi.png" alt="Humphrey Shi" />
+        <div class="name"><a href="https://www.humphreyshi.com/">Humphrey Shi</a></div>
+        <div class="aff">Georgia Tech / NVIDIA</div>
+        <div class="role">CVPR 2027 PC Chair</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="organizers">
+  <div class="container">
+    <div class="section-head">
+      <span class="num">06</span>
+      <h2>Organizers</h2>
+    </div>
+    <p class="lede">A four-person core organizing committee (with one tentative DEI lead), each holding a named operational role.</p>
+
+    <div class="people">
+      <div class="person">
+        <img class="photo" src="assets/denghui.png" alt="Denghui Zhang" />
+        <div class="name"><a href="https://zhangdenghui.site">Denghui Zhang</a></div>
+        <div class="aff">Stevens Institute of Technology</div>
+        <div class="role">Workshop Lead</div>
+      </div>
+      <div class="person">
+        <img class="photo" src="assets/jianing.jpg" alt="Jianing Zhu" />
+        <div class="name"><a href="https://zfancy.github.io">Jianing Zhu</a></div>
+        <div class="aff">UT Austin</div>
+        <div class="role">Submissions Owner</div>
+      </div>
+      <div class="person">
+        <img class="photo" src="assets/humphreyshi.png" alt="Humphrey Shi" />
+        <div class="name"><a href="https://www.humphreyshi.com/">Humphrey Shi</a></div>
+        <div class="aff">Georgia Tech / NVIDIA</div>
+        <div class="role">Review Process &amp; CV-Community Liaison</div>
+      </div>
+      <div class="person">
+        <img class="photo" src="assets/atlas.png" alt="Atlas Wang" />
+        <div class="name"><a href="https://vita-group.github.io/">Atlas Wang</a></div>
+        <div class="aff">UT Austin / XTX Markets</div>
+        <div class="role">Panel Moderator &amp; Discussion Owner</div>
+      </div>
+      <div class="person">
+        <img class="photo" src="assets/kezia.jpeg" alt="Kezia Oketch" />
+        <div class="name"><a href="https://keziaoketch.com">Kezia Oketch</a></div>
+        <div class="aff">Notre Dame</div>
+        <div class="role">DEI &amp; Mentorship Owner</div>
+        <div class="tag">tentative</div>
+      </div>
+    </div>
+
+    <p style="margin-top: 48px; color: var(--ink-soft); font-size: 14px;">
+      <strong>Contact:</strong> <a href="mailto:dzhang6@stevens.edu">dzhang6@stevens.edu</a> &nbsp;·&nbsp;
+      Primary OpenReview contact: Denghui Zhang &nbsp;·&nbsp;
+      Secondary: Jianing Zhu
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    AI-Native Academia Workshop · NeurIPS 2026 · December 2026
+    <div class="last">Workshop website built for the NeurIPS 2026 Workshop on AI-Native Academia.</div>
+  </div>
+</footer>
+
+</body>
+</html>
