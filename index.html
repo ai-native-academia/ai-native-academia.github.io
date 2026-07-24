@@ -269,6 +269,42 @@
   }
   table.topics td.body { color: var(--ink-soft); }
 
+  /* ---------- FEATURED PILOT ---------- */
+  .pilot-card {
+    margin-top: 40px;
+    padding: 28px 30px;
+    border: 1px solid var(--rule);
+    background:
+      linear-gradient(135deg, rgba(20, 83, 102, 0.08), rgba(184, 92, 42, 0.05)),
+      var(--paper);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 28px;
+    align-items: center;
+  }
+  .pilot-card .kicker {
+    margin-bottom: 8px;
+    color: var(--accent-2);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .pilot-card h3 {
+    margin: 0 0 8px;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  .pilot-card p {
+    max-width: 66ch;
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 14.5px;
+  }
+  .pilot-card .cta { white-space: nowrap; }
+
   /* ---------- DATES TIMELINE ---------- */
   .timeline {
     border-left: 2px solid var(--rule);
@@ -365,6 +401,8 @@
     table.topics td.title { width: 40%; }
     .people { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 22px 14px; }
     .person .photo { width: 90px; height: 90px; }
+    .pilot-card { grid-template-columns: 1fr; padding: 24px; }
+    .pilot-card .cta { justify-self: start; }
   }
 </style>
 </head>
@@ -480,6 +518,15 @@
     </table>
 
     <p style="margin-top: 36px;"><strong>Submission tracks (via <a href="https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/AI-Native_Academia" target="_blank" rel="noopener noreferrer">OpenReview</a>, non-archival):</strong> Short papers (4 pages) and long papers (9 pages), references excluded. Work already accepted at NeurIPS main or other ML venues is excluded.</p>
+
+    <div class="pilot-card">
+      <div>
+        <div class="kicker">Prospective workshop pilot</div>
+        <h3>Humanly: configurable, traceable human–AI writing</h3>
+        <p>We are considering Humanly as a provenance pilot for workshop submissions. Organizers can configure a writing environment—including AI assistance, copy-and-paste rules, permitted resources, timing, length, and detectors. Humanly records in-platform edits, clipboard activity, and AI use, then generates a signed, publicly verifiable certificate with authorship statistics, an activity timeline, replay, and anomaly signals. These signals support human review rather than an automatic verdict.</p>
+      </div>
+      <a class="cta ghost" href="https://writehumanly.net/" target="_blank" rel="noopener noreferrer">Explore Humanly</a>
+    </div>
   </div>
 </section>
 
