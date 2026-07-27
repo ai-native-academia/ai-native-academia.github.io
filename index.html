@@ -446,13 +446,13 @@
       <h2>Overview</h2>
     </div>
     <p class="lede">LLMs and AI agents are no longer just objects of study; they are now participants in the academic pipeline. Authors draft with them, reviewers summarize with them, program chairs deploy them for triage and meta-review. The institutions of science were not designed for this.</p>
-    <p><strong>From AI for science to AI-native academia.</strong> Most AI-for-science venues ask how AI accelerates discovery in biology, chemistry, or medicine. We ask a different question: <em>how should the institutions of science themselves change when AI becomes embedded in authorship, review, citation, publication infrastructure, and scholarly memory?</em></p>
-    <p>Failure modes are arising at every node of the pipeline: AI-generated text and fabricated citations at submission, partly or fully AI-generated reviews, hidden prompt injection in manuscripts, score-aggregation mechanisms whose failure modes are not yet understood, recursive feedback into future training corpora. <strong>Human-AI co-hallucination</strong> (claims no model and no human would produce alone, that arise through their interaction) is one important failure mode among several; this workshop builds a shared taxonomy, security model, and governance framework for the broader transition.</p>
-    <p>Program chairs and platforms are already running prototype interventions: reviewer-AI-use policies, author self-ranking and Isotonic-Mechanism deployments, in-house AI-review detectors, adversarial-submission audits, full-loop AI-author / AI-reviewer pilots, post-publication citation audits. These are scattered across venues with no shared framework. <strong>This workshop is the convergence point.</strong></p>
+    <p><strong>From AI for science to AI-native academia.</strong> Most AI-for-science venues ask how AI accelerates discovery. We ask a different question: <em>how should the institutions of science themselves change when AI is embedded in authorship, review, citation, and scholarly memory?</em></p>
+    <p>Failure modes are appearing at every node: fabricated citations at submission, AI-generated reviews, prompt injection in manuscripts, recursive feedback into training corpora. <strong>Human-AI co-hallucination</strong> (claims no model or human would produce alone) is one among several. The workshop builds a shared taxonomy, security model, and governance framework.</p>
+    <p>Program chairs are already running scattered interventions, reviewer AI-use policies, self-ranking mechanisms, in-house detectors, adversarial-submission audits, AI-author pilots, citation audits, with no shared framework. <strong>This workshop is the convergence point.</strong></p>
 
     <div class="stats">
       <div class="stat"><div class="num-big">1 day</div><div class="label">in-person, Atlanta</div></div>
-      <div class="stat"><div class="num-big">6</div><div class="label">invited speakers</div></div>
+      <div class="stat"><div class="num-big">7</div><div class="label">invited speakers</div></div>
       <div class="stat"><div class="num-big">5+1</div><div class="label">PC-chair panel + moderator</div></div>
       <div class="stat"><div class="num-big">300–400</div><div class="label">expected attendees</div></div>
     </div>
@@ -472,47 +472,47 @@
         <tr>
           <td class="idx">1</td>
           <td class="title">AI-Assisted Authorship and Submission Integrity<span class="node">author / submitter</span></td>
-          <td class="body">LLM use in drafting, related-work synthesis, citation selection, code generation, figure/table generation, polishing, rebuttal, and submission preparation. AI-shaped novelty claims, fabricated or unsupported claims, accessibility for non-native writers, authorship disclosure, submission inflation, AI slop, paper mills, the boundary between legitimate assistance and distorted communication.</td>
+          <td class="body">LLM use in drafting, citation, and rebuttals; disclosure, AI-shaped novelty, fabricated claims, submission inflation, paper mills, accessibility for non-native writers, and the line between help and distortion.</td>
         </tr>
         <tr>
           <td class="idx">2</td>
           <td class="title">Adversarial Manuscripts and Submission-Side Attacks<span class="node">submission artifact</span></td>
-          <td class="body">Hidden prompt injection, invisible text, adversarial figures, malicious metadata, jailbreaks against AI-assisted reviewers, prompt attacks against review assistants, citation checkers, plagiarism tools, and meta-review systems. Document sanitization, submission-portal defenses, review-tool security, red-teaming of AI-assisted conference workflows.</td>
+          <td class="body">Hidden prompt injection, invisible text, adversarial figures, and jailbreaks against AI reviewers and citation checkers; document sanitization, submission-portal defenses, and review-tool security.</td>
         </tr>
         <tr>
           <td class="idx">3</td>
           <td class="title">AI-Assisted Peer Review and Reviewer Accountability<span class="node">reviewer</span></td>
-          <td class="body">Human-only, AI-only, and collaborative reviewing; AI-generated or AI-polished reviews; confidentiality risks from third-party AI tools; reviewer over-reliance; review hallucination; reviewer disclosure policies. Measuring review correctness, helpfulness, specificity, calibration, fairness, and decision impact; tools that support reviewers without replacing human accountability.</td>
+          <td class="body">AI-generated and AI-polished reviews, confidentiality risks, reviewer over-reliance, and review hallucination; measuring review quality and supporting reviewers without replacing human accountability.</td>
         </tr>
         <tr>
           <td class="idx">4</td>
           <td class="title">Meta-Review, PCs, and Conference-Scale Decision Support<span class="node">AC / SAC / PC / organizer</span></td>
-          <td class="body">AI tools for reviewer assignment, conflict detection, reviewer bidding, desk-reject triage, review-quality monitoring, rebuttal summarization, meta-review synthesis, score aggregation, reviewer-policy enforcement, collusion detection. Mechanism design under AI pressure, including author self-ranking and Isotonic-Mechanism interventions; audit trails for AI-influenced decisions.</td>
+          <td class="body">AI for reviewer assignment, desk-reject triage, score aggregation, and collusion detection; mechanism design under AI pressure, including author self-ranking, and audit trails for AI-influenced decisions.</td>
         </tr>
         <tr>
           <td class="idx">5</td>
           <td class="title">Human-AI Co-Hallucination and Cross-Role Error Propagation<span class="node">cross-cutting failure mode</span></td>
-          <td class="body">Taxonomies and measurements of false or unsupported scholarly claims that arise through interaction between AI systems and human participants, then propagate through writing, review, rebuttal, meta-review, citation, acceptance, indexing, and reuse. Work that distinguishes co-hallucination from pure model error or pure human error, and identifies intervention points before errors become institutionalized.</td>
+          <td class="body">Taxonomies and measurements of false claims that arise through human-AI interaction and propagate through review, citation, and reuse, with intervention points before they become institutionalized.</td>
         </tr>
         <tr>
           <td class="idx">6</td>
           <td class="title">Citation, Credit, and Scholarly Knowledge Integrity<span class="node">citation / indexing node</span></td>
-          <td class="body">Citation hallucination, citation relevance, support-of-claim verification, citation manipulation, biased citation recommendation, missing-credit detection, bibliometric distortion, citation fairness, knowledge-graph contamination. Methods that verify not only whether a cited work exists but whether it supports the claim being made.</td>
+          <td class="body">Citation hallucination, support-of-claim verification, citation manipulation, missing-credit detection, and knowledge-graph contamination; verifying not just that a citation exists but that it supports the claim.</td>
         </tr>
         <tr>
           <td class="idx">7</td>
           <td class="title">Provenance, Plagiarism, Detection, and Due Process<span class="node">integrity enforcement layer</span></td>
-          <td class="body">AI-generated paper detection extending recent ICLR/ICML audits; plagiarism and paraphrase reuse; watermarking; text, code, and figure provenance; copyright and memorization risks in scholarly writing. Detector reliability, false positives, non-native author harms, and due-process and appeal mechanisms for suspected AI misuse.</td>
+          <td class="body">AI-generated paper detection, watermarking, text and figure provenance, and memorization risks; detector reliability, false-positive harms to non-native authors, and appeal mechanisms.</td>
         </tr>
         <tr>
           <td class="idx">8</td>
           <td class="title">Recursive Scholarly Feedback Loops and Corpus Contamination<span class="node">post-publication / future corpora</span></td>
-          <td class="body">How AI-generated papers, reviews, rebuttals, citations, and summaries enter future scholarly corpora and shape future AI systems. Synthetic-data contamination and model collapse in scientific text, self-reinforcing citation errors, AI-generated review norms, benchmark leakage, homogenization of scientific writing, long-term degradation of scholarly knowledge.</td>
+          <td class="body">How AI-generated papers, reviews, and citations re-enter training corpora: model collapse in scientific text, self-reinforcing citation errors, benchmark leakage, and long-term homogenization.</td>
         </tr>
         <tr>
           <td class="idx">9</td>
           <td class="title">Publication Infrastructure, Policy, and Venue Repositioning<span class="node">platform / institution / governance</span></td>
-          <td class="body">Enforceable AI-use policies for authors, reviewers, ACs, PCs, and platforms; audit trails for AI-assisted decisions; privacy and confidentiality in AI-assisted review; review-data governance; OpenReview, arXiv, ACM, IEEE infrastructure. Scaling review from 15,000 to 30,000+ submissions without collapsing into AI-only evaluation; how top AI venues should reposition authorship, peer review, citation governance, sanctions, transparency, and scientific certification under AI.</td>
+          <td class="body">Enforceable AI-use policies, audit trails, confidentiality, and platform infrastructure (OpenReview, arXiv, ACM, IEEE); scaling review past 30,000+ submissions without collapsing into AI-only evaluation.</td>
         </tr>
       </tbody>
     </table>
@@ -524,7 +524,7 @@
       <div>
         <div class="kicker">Prospective workshop pilot</div>
         <h3>Humanly: configurable, traceable human–AI writing</h3>
-        <p>We are considering Humanly as a provenance pilot for workshop submissions. Organizers can configure a writing environment—including AI assistance, copy-and-paste rules, permitted resources, timing, length, and detectors. Humanly records in-platform edits, clipboard activity, and AI use, then generates a signed, publicly verifiable certificate with authorship statistics, an activity timeline, replay, and anomaly signals. These signals support human review rather than an automatic verdict.</p>
+        <p>We are considering Humanly as a provenance pilot: a configurable writing environment that records in-platform edits, clipboard activity, and AI use, then issues a signed, verifiable certificate with authorship statistics and anomaly signals. The signals support human review, not an automatic verdict.</p>
       </div>
       <a class="cta ghost" href="https://writehumanly.net/" target="_blank" rel="noopener noreferrer">Explore Humanly</a>
     </div>
