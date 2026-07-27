@@ -7,7 +7,7 @@
 <meta name="description" content="NeurIPS 2026 Workshop on AI-Native Academia: Authorship, Peer Review, and Conference Governance under AI." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
 <style>
   :root {
     --ink:        #0e1419;
@@ -25,7 +25,7 @@
     margin: 0;
     background: var(--paper);
     color: var(--ink);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
@@ -103,16 +103,6 @@
     100% { transform: translate(-40px, 50px) scale(1.05); }
   }
 
-  /* Particle constellation canvas */
-  canvas#particles {
-    position: absolute;
-    inset: 0;
-    width: 100%; height: 100%;
-    z-index: 1;
-    pointer-events: none;
-    opacity: 0.55;
-  }
-
   /* Pulse dot next to eyebrow */
   .pulse-dot {
     display: inline-block;
@@ -130,7 +120,6 @@
 
   @media (prefers-reduced-motion: reduce) {
     .orb, .pulse-dot { animation: none; }
-    canvas#particles { display: none; }
   }
   header.hero .eyebrow {
     text-transform: uppercase;
@@ -426,7 +415,6 @@
   <div class="orb a" aria-hidden="true"></div>
   <div class="orb b" aria-hidden="true"></div>
   <div class="orb c" aria-hidden="true"></div>
-  <canvas id="particles" aria-hidden="true"></canvas>
   <div class="container">
     <div class="eyebrow"><span class="pulse-dot"></span>NeurIPS 2026 Workshop &nbsp;·&nbsp; Atlanta, Dec 2026</div>
     <h1>AI-Native Academia: <em>Authorship,</em> Peer Review, and Conference Governance under AI</h1>
@@ -704,119 +692,6 @@
   </div>
 </footer>
 
-<script>
-// Hero particle constellation. ~70 lines, dependency-free, ~2KB minified.
-(function () {
-  const canvas = document.getElementById('particles');
-  if (!canvas) return;
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const ctx = canvas.getContext('2d');
-
-  const state = {
-    w: 0, h: 0, dpr: Math.min(window.devicePixelRatio || 1, 2),
-    points: [], mouse: { x: -1e6, y: -1e6, active: false },
-  };
-
-  function resize() {
-    const rect = canvas.getBoundingClientRect();
-    state.w = rect.width;
-    state.h = rect.height;
-    canvas.width = Math.floor(state.w * state.dpr);
-    canvas.height = Math.floor(state.h * state.dpr);
-    ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
-    seed();
-  }
-
-  function seed() {
-    const target = Math.min(80, Math.max(28, Math.floor((state.w * state.h) / 20000)));
-    state.points = [];
-    for (let i = 0; i < target; i++) {
-      state.points.push({
-        x: Math.random() * state.w,
-        y: Math.random() * state.h,
-        vx: (Math.random() - 0.5) * 0.18,
-        vy: (Math.random() - 0.5) * 0.18,
-        r: 1.2 + Math.random() * 1.2,
-      });
-    }
-  }
-
-  function step() {
-    ctx.clearRect(0, 0, state.w, state.h);
-
-    // Update + draw points
-    for (const p of state.points) {
-      // gentle mouse repulsion
-      if (state.mouse.active) {
-        const dx = p.x - state.mouse.x;
-        const dy = p.y - state.mouse.y;
-        const d2 = dx * dx + dy * dy;
-        if (d2 < 14400) {  // 120px radius
-          const d = Math.sqrt(d2) || 1;
-          const force = (120 - d) / 120 * 0.45;
-          p.vx += (dx / d) * force * 0.06;
-          p.vy += (dy / d) * force * 0.06;
-        }
-      }
-      // mild friction so it doesn't run away
-      p.vx *= 0.985; p.vy *= 0.985;
-      // small ambient drift
-      p.x += p.vx;
-      p.y += p.vy;
-      // wrap around
-      if (p.x < -10) p.x = state.w + 10;
-      if (p.x > state.w + 10) p.x = -10;
-      if (p.y < -10) p.y = state.h + 10;
-      if (p.y > state.h + 10) p.y = -10;
-
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(14, 20, 25, 0.55)';
-      ctx.fill();
-    }
-
-    // Connect nearby points
-    for (let i = 0; i < state.points.length; i++) {
-      for (let j = i + 1; j < state.points.length; j++) {
-        const a = state.points[i], b = state.points[j];
-        const dx = a.x - b.x, dy = a.y - b.y;
-        const d2 = dx * dx + dy * dy;
-        if (d2 < 14400) {  // 120px
-          const alpha = (1 - d2 / 14400) * 0.32;
-          ctx.strokeStyle = `rgba(20, 83, 102, ${alpha})`;
-          ctx.lineWidth = 0.8;
-          ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.stroke();
-        }
-      }
-    }
-
-    requestAnimationFrame(step);
-  }
-
-  function onMove(e) {
-    const rect = canvas.getBoundingClientRect();
-    const t = e.touches ? e.touches[0] : e;
-    state.mouse.x = t.clientX - rect.left;
-    state.mouse.y = t.clientY - rect.top;
-    state.mouse.active = true;
-  }
-  function onLeave() { state.mouse.active = false; }
-
-  window.addEventListener('resize', resize);
-  // Use the hero element for mouse tracking since canvas has pointer-events: none.
-  const hero = canvas.parentElement;
-  hero.addEventListener('mousemove', onMove);
-  hero.addEventListener('mouseleave', onLeave);
-  hero.addEventListener('touchmove', onMove, { passive: true });
-  hero.addEventListener('touchend', onLeave);
-
-  resize();
-  requestAnimationFrame(step);
-})();
-</script>
 
 </body>
 </html>
