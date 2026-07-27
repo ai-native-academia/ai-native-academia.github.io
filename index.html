@@ -65,19 +65,18 @@
     content: "";
     position: absolute; inset: -20px;
     z-index: 0;
-    background: url("assets/atlanta.jpeg") center 35% / cover no-repeat;
-    filter: blur(7px) saturate(0.92);
-    opacity: 0.26;
-    transform: scale(1.06);
+    background: url("assets/atlanta.jpeg") center 40% / cover no-repeat;
+    filter: blur(3px) saturate(0.95);
+    opacity: 0.62;
+    transform: scale(1.04);
   }
   header.hero::after {
     content: "";
     position: absolute; inset: 0;
     z-index: 1;
-    background: linear-gradient(180deg,
-      rgba(246,247,249,0.40) 0%,
-      rgba(246,247,249,0.70) 55%,
-      var(--paper) 100%);
+    background:
+      linear-gradient(90deg, rgba(246,247,249,0.80) 0%, rgba(246,247,249,0.42) 48%, rgba(246,247,249,0.06) 100%),
+      linear-gradient(180deg, rgba(246,247,249,0) 62%, var(--paper) 100%);
   }
   header.hero > .container { position: relative; z-index: 2; }
 
