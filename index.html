@@ -63,31 +63,13 @@
   header.hero > .container { position: relative; z-index: 2; }
 
 
-  /* Pulse dot next to eyebrow */
-  .pulse-dot {
-    display: inline-block;
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--accent);
-    margin-right: 10px;
-    vertical-align: 1px;
-    animation: pulse 2.4s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1;   transform: scale(1); box-shadow: 0 0 0 0 rgba(23,67,92,0.45); }
-    50%      { opacity: 0.6; transform: scale(0.9); box-shadow: 0 0 0 10px rgba(23,67,92,0); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .pulse-dot { animation: none; }
-  }
   header.hero .eyebrow {
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    font-size: 12px;
-    color: var(--accent);
-    font-weight: 600;
-    margin-bottom: 18px;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
   }
   header.hero h1 {
     font-family: 'Source Serif 4', Georgia, serif;
@@ -366,7 +348,7 @@
 
 <header class="hero">
   <div class="container">
-    <div class="eyebrow"><span class="pulse-dot"></span>NeurIPS 2026 Workshop &nbsp;·&nbsp; Atlanta, Dec 2026</div>
+    <div class="eyebrow">NeurIPS 2026 Workshop &nbsp;·&nbsp; Atlanta, Dec 2026</div>
     <h1>AI-Native Academia: <em>Authorship,</em> Peer Review, and Conference Governance under AI</h1>
     <p class="tagline">Academic publishing is becoming AI-native before its governance is ready. This workshop convenes the PC chairs of ICLR, ICML, and CVPR to redesign authorship, peer review, citation, and conference governance under AI.</p>
     <div class="cta-row">
