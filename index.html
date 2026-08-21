@@ -346,6 +346,14 @@
     .pilot-card { grid-template-columns: 1fr; padding: 24px; }
     .pilot-card .cta { justify-self: start; }
   }
+
+  /* ---------- SPONSORS ---------- */
+  .sponsors { display: flex; justify-content: center; flex-wrap: wrap; gap: 48px; }
+  .sponsor { border: none; display: inline-flex; }
+  .sponsor:hover { border: none; }
+  .sponsor img { height: 150px; width: auto; display: block; transition: opacity 0.15s; }
+  .sponsor:hover img { opacity: 0.82; }
+  .sponsor-tag { text-align: center; margin-top: 22px; font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 17px; color: var(--ink-soft); }
 </style>
 </head>
 <body>
@@ -610,6 +618,20 @@
       <strong>Contacts:</strong> <a href="mailto:dzhang42@stevens.edu">dzhang42@stevens.edu</a> and
       <a href="mailto:jianing.zhu@austin.utexas.edu">jianing.zhu@austin.utexas.edu</a>
     </p>
+  </div>
+</section>
+
+<section id="sponsors">
+  <div class="container">
+    <div class="section-head">
+      <h2>Sponsors</h2>
+    </div>
+    <div class="sponsors">
+      <a class="sponsor" href="https://www.agenticresearch.sh/" target="_blank" rel="noopener noreferrer">
+        <img src="ARA/ara-labs-lockup-vertical-1600.png" alt="ARA Labs" />
+      </a>
+    </div>
+    <p class="sponsor-tag">AI-native R&amp;D. At scale.</p>
   </div>
 </section>
 
