@@ -347,6 +347,12 @@
     .pilot-card .cta { justify-self: start; }
   }
 
+  .hero-sponsor { display: flex; align-items: center; gap: 12px; margin-top: 34px; }
+  .hero-sponsor span { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-soft); font-weight: 600; }
+  .hero-sponsor a { border: none; display: inline-flex; }
+  .hero-sponsor a:hover { border: none; opacity: 0.75; }
+  .hero-sponsor img { height: 22px; width: auto; display: block; }
+
   /* ---------- SPONSORS ---------- */
   .sponsors { display: flex; justify-content: center; flex-wrap: wrap; gap: 48px; }
   .sponsor { border: none; display: inline-flex; }
@@ -368,6 +374,7 @@
       <li><a href="#speakers">Speakers</a></li>
       <li><a href="#panel">Panel</a></li>
       <li><a href="#organizers">Organizers</a></li>
+      <li><a href="#sponsors">Sponsors</a></li>
     </ul>
   </div>
 </nav>
@@ -381,6 +388,12 @@
       <a class="cta primary" href="https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/AI-Native_Academia" target="_blank" rel="noopener noreferrer">Submit on OpenReview</a>
       <a class="cta ghost" href="#cfp">Call for Papers</a>
       <a class="cta ghost" href="#dates">Important Dates</a>
+    </div>
+    <div class="hero-sponsor">
+      <span>Sponsored by</span>
+      <a href="https://www.agenticresearch.sh/" target="_blank" rel="noopener noreferrer">
+        <img src="ARA/ara-labs-lockup-horizontal.svg" alt="ARA Labs" />
+      </a>
     </div>
   </div>
 </header>
