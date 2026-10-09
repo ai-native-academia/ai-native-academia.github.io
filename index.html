@@ -282,6 +282,42 @@
   .timeline .what strong { font-weight: 600; }
   .timeline .what .note { color: var(--ink-soft); font-size: 13.5px; display: block; margin-top: 2px; }
 
+  /* ---------- WORKSHOP SCHEDULE ---------- */
+  .schedule-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    margin: -18px 0 28px;
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+  .schedule-meta strong { color: var(--ink); font-weight: 600; }
+  .schedule-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .schedule-list li {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 24px;
+    align-items: baseline;
+    padding: 15px 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .schedule-list li:nth-child(even) { background: rgba(236, 239, 243, 0.5); }
+  .schedule-list li.break { color: var(--ink-soft); }
+  .schedule-list time {
+    color: var(--accent);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .schedule-list .session { font-size: 15px; font-weight: 500; }
+  .schedule-list .session strong { font-weight: 650; }
+
   /* ---------- PEOPLE GRIDS ---------- */
   .group-label {
     font-size: 13px;
@@ -333,13 +369,20 @@
 
   /* ---------- MOBILE ---------- */
   @media (max-width: 720px) {
-    nav.top ul { gap: 16px; }
-    nav.top .brand .venue { display: none; }
+    nav.top .inner { display: block; padding: 12px 20px 10px; }
+    nav.top .brand { margin-bottom: 9px; }
+    nav.top .brand .venue { display: inline; }
+    nav.top ul { gap: 18px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: none; }
+    nav.top ul::-webkit-scrollbar { display: none; }
+    nav.top li { flex: 0 0 auto; }
     header.hero { padding: 60px 0 50px; }
     section { padding: 56px 0; }
     section .section-head { flex-direction: column; gap: 6px; margin-bottom: 28px; }
     .stats { grid-template-columns: repeat(2, 1fr); }
     .timeline .item { grid-template-columns: 1fr; gap: 4px; }
+    .schedule-meta { display: block; margin-top: -10px; }
+    .schedule-meta span { display: block; margin-top: 3px; }
+    .schedule-list li { grid-template-columns: 105px minmax(0, 1fr); gap: 14px; padding: 14px 10px; }
     table.topics td.title { width: 40%; }
     .people { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 22px 14px; }
     .person .photo { width: 90px; height: 90px; }
@@ -372,6 +415,7 @@
       <li><a href="#overview">Overview</a></li>
       <li><a href="#cfp">Call for Papers</a></li>
       <li><a href="#dates">Dates</a></li>
+      <li><a href="#schedule">Schedule</a></li>
       <li><a href="#speakers">Speakers</a></li>
       <li><a href="#panel">Panel</a></li>
       <li><a href="#organizers">Organizers</a></li>
@@ -495,6 +539,37 @@
       <div class="item"><div class="date">Oct 10, 2026</div><div class="what"><strong>Camera-ready</strong></div></div>
       <div class="item event"><div class="date">Dec 12, 2026</div><div class="what"><strong>Workshop date: AI-Native Academia @ NeurIPS 2026</strong><span class="note">Atlanta, USA</span></div></div>
     </div>
+  </div>
+</section>
+
+<section id="schedule">
+  <div class="container">
+    <div class="section-head">
+      <h2>Workshop Schedule</h2>
+    </div>
+    <div class="schedule-meta">
+      <strong>Saturday, December 12, 2026</strong>
+      <span>Eastern Standard Time (EST)</span>
+    </div>
+    <ol class="schedule-list" aria-label="Workshop schedule for December 12, 2026">
+      <li><time datetime="2026-12-12T08:00:00-05:00">08:00–08:10</time><div class="session">Opening Remarks</div></li>
+      <li><time datetime="2026-12-12T08:10:00-05:00">08:10–08:40</time><div class="session"><strong>Invited Talk 1</strong> (James Zou)</div></li>
+      <li><time datetime="2026-12-12T08:40:00-05:00">08:40–09:10</time><div class="session"><strong>Invited Talk 2</strong> (Kyunghyun Cho)</div></li>
+      <li class="break"><time datetime="2026-12-12T09:10:00-05:00">09:10–09:25</time><div class="session">Coffee Break</div></li>
+      <li><time datetime="2026-12-12T09:25:00-05:00">09:25–09:40</time><div class="session">ARA Sponsor Talk &amp; Award Announcement</div></li>
+      <li><time datetime="2026-12-12T09:40:00-05:00">09:40–10:10</time><div class="session"><strong>Invited Talk 3</strong> (Hiromu Yakura)</div></li>
+      <li><time datetime="2026-12-12T10:10:00-05:00">10:10–10:40</time><div class="session"><strong>Invited Talk 4</strong> (Hima Lakkaraju)</div></li>
+      <li><time datetime="2026-12-12T10:40:00-05:00">10:40–11:30</time><div class="session">Contributed Talks</div></li>
+      <li class="break"><time datetime="2026-12-12T11:30:00-05:00">11:30–13:00</time><div class="session">Lunch &amp; Poster Session</div></li>
+      <li><time datetime="2026-12-12T13:00:00-05:00">13:00–13:30</time><div class="session"><strong>Invited Talk 5</strong> (Lin Peng)</div></li>
+      <li><time datetime="2026-12-12T13:30:00-05:00">13:30–14:00</time><div class="session"><strong>Invited Talk 6</strong> (Yian Yin)</div></li>
+      <li><time datetime="2026-12-12T14:00:00-05:00">14:00–14:30</time><div class="session"><strong>Invited Talk 7</strong> (Nihar B. Shah)</div></li>
+      <li class="break"><time datetime="2026-12-12T14:30:00-05:00">14:30–14:50</time><div class="session">Coffee Break</div></li>
+      <li><time datetime="2026-12-12T14:50:00-05:00">14:50–15:20</time><div class="session">Contributed Talks</div></li>
+      <li><time datetime="2026-12-12T15:20:00-05:00">15:20–16:20</time><div class="session">All-PC-Chair Panel</div></li>
+      <li><time datetime="2026-12-12T16:20:00-05:00">16:20–16:50</time><div class="session">Open Q&amp;A with PC Chairs</div></li>
+      <li><time datetime="2026-12-12T16:50:00-05:00">16:50–17:00</time><div class="session">Closing Remarks</div></li>
+    </ol>
   </div>
 </section>
 
